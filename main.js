@@ -20,7 +20,7 @@ new GlideQuery('cmdb_ci')
     gs.info(JSON.stringify(ci));
 });
 
-
+// GlideRecord sample
 var grCi = new GlideRecord('cmdb_ci');
 grCi.addQuery('nameSTARTSWITHa');
 grCi.query();
@@ -29,4 +29,11 @@ while(grCi.next()) {
  gs.info(grCi.name);
 }
 
-
+// to get display value
+new GlideQuery('incident')
+.where('priority', 1)
+.select('short_description', 'priority$DISPLAY')
+.forEach(function(task) {
+	gs.info(task.short_description);
+	gs.info(task.priority$DISPLAY);
+})
