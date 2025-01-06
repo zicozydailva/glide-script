@@ -63,3 +63,10 @@ var user = new GlideQuery("incident").disableWorkflow().insertOrUpdate({
   sys_id: "e7f005b783b6d2109b63c170deaad326",
   short_description: "Test Inc",
 });
+
+
+// delete record
+var user = new GlideQuery('incident')
+	.where(
+		"sys_id", "e7f005b783b6d2109b63c170deaad326"
+	).deleteMultiple();
