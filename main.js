@@ -38,7 +38,7 @@ new GlideQuery('incident')
 	gs.info(task.priority$DISPLAY);
 })
 
-// using encoded query
+// using encoded query condition to filter
 new GlideQuery.parse('incident', 'priority=3')
 .select('short_description', 'priority$DISPLAY')
 .forEach(function(task) {
