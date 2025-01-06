@@ -70,3 +70,14 @@ var user = new GlideQuery('incident')
 	.where(
 		"sys_id", "e7f005b783b6d2109b63c170deaad326"
 	).deleteMultiple();
+
+    // GlideRecord agg
+    var query = new GlideQuery('task')
+	.where('active', true)
+	.groupBy('priority')
+	.aggregate('sum', 'reassignment_count')
+	.having('sum', 'reassignment_count', '>', 4)
+	.select()
+	.forEach(function(priority) {
+		gs.info("priority " + priority.group.priority + " : " + priority.sum.reassignment_count + " reassignments")
+	});
