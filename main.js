@@ -20,3 +20,13 @@ new GlideQuery('cmdb_ci')
     gs.info(JSON.stringify(ci));
 });
 
+
+var grCi = new GlideRecord('cmdb_ci');
+grCi.addQuery('nameSTARTSWITHa');
+grCi.query();
+
+while(grCi.next()) {
+ gs.info(grCi.name);
+}
+
+
