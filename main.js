@@ -37,3 +37,11 @@ new GlideQuery('incident')
 	gs.info(task.short_description);
 	gs.info(task.priority$DISPLAY);
 })
+
+// using encoded query
+new GlideQuery.parse('incident', 'priority=3')
+.select('short_description', 'priority$DISPLAY')
+.forEach(function(task) {
+	gs.info(task.short_description);
+	gs.info(task.priority$DISPLAY);
+})
