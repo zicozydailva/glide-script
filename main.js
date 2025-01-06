@@ -45,3 +45,8 @@ new GlideQuery.parse('incident', 'priority=3')
 	gs.info(task.short_description);
 	gs.info(task.priority$DISPLAY);
 })
+
+// insert record 
+new GlideQuery('incident')
+	.disableAutoSysFields()
+	.insert({ description: 'example', priority: 1 });
