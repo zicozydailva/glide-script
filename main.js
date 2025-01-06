@@ -57,3 +57,9 @@ new GlideQuery("incident")
   .disableAutoSysFields()
   .disableWorkflow()
   .update({ short_description: "working progress", priority: 1 });
+
+// alternatively
+var user = new GlideQuery("incident").disableWorkflow().insertOrUpdate({
+  sys_id: "e7f005b783b6d2109b63c170deaad326",
+  short_description: "Test Inc",
+});
