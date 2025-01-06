@@ -49,4 +49,5 @@ new GlideQuery.parse('incident', 'priority=3')
 // insert record 
 new GlideQuery('incident')
 	.disableAutoSysFields()
+    .disableWorkflow() // to disable all business rules
 	.insert({ description: 'example', priority: 1 });
